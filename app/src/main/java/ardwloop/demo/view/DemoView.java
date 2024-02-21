@@ -1,5 +1,7 @@
 package ardwloop.demo.view;
 
+import ardwloop.demo.controller.DemoButton;
+import ardwloop.demo.controller.DemoCommands;
 import ardwloop.demo.controller.DemoController;
 import ardwloop.demo.model.DemoModel;
 
@@ -23,12 +25,9 @@ public class DemoView extends JFrame {
         JLabel connectionLbl = new JLabel();
         connectionLbl.setText(model.isConnected()?"Connected":"Not connected");
 
-        JButton exit = new JButton("Exit");
-        exit.addActionListener(controller);
-
         setLayout(new BorderLayout());
-        add(connectionLbl, BorderLayout.NORTH);
-        add(exit, BorderLayout.SOUTH);
+        add(new DemoButton(controller, DemoCommands.START), BorderLayout.NORTH);
+        add(new DemoButton(controller, DemoCommands.EXIT), BorderLayout.SOUTH);
         setVisible(true);
     }
 }

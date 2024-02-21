@@ -16,6 +16,10 @@ repositories {
 }
 
 dependencies {
+
+    // Integrate ardwloop
+    implementation 'io.github.llschall:ardwloop:0.0.3'
+
     // Use JUnit Jupiter for testing.
     testImplementation libs.junit.jupiter
 
@@ -28,7 +32,7 @@ dependencies {
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 

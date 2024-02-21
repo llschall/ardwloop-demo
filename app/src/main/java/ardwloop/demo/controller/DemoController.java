@@ -1,6 +1,7 @@
 package ardwloop.demo.controller;
 
 import ardwloop.demo.model.DemoModel;
+import ardwloop.demo.utils.DemoException;
 import ardwloop.demo.view.DemoView;
 
 import java.awt.event.ActionEvent;
@@ -18,7 +19,14 @@ public class DemoController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        model.exit();
+        Object source = e.getSource();
+        if (source instanceof DemoButton button) {
+            switch (button.command) {
+                case START -> model.start();
+                case EXIT -> model.exit();
+            }
+        }
+        throw new DemoException("Unexpected event: "+e.getClass().getName());
     }
 
     public void launch() {

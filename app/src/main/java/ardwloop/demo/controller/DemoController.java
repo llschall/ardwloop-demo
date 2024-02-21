@@ -13,7 +13,7 @@ public class DemoController implements ActionListener {
 
     public DemoController() {
         model = new DemoModel();
-        view = new DemoView();
+        view = new DemoView(model);
     }
 
     @Override

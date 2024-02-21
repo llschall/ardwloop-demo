@@ -1,7 +1,6 @@
 package ardwloop.demo.model;
 
-import org.llschall.ardwloop.ArdwLoopStarter;
-import org.llschall.ardwloop.motor.AbstractLoop;
+import org.llschall.ardwloop.ArdwloopStarter;
 
 public class DemoModel {
 
@@ -9,16 +8,7 @@ public class DemoModel {
 
     public void start() {
         DemoProgram program = new DemoProgram();
-        ArdwLoopStarter.get().start(program, new AbstractLoop("demo") {
-            @Override
-            public void loop() {
-                // do nothing for now
-            }
-            @Override
-            public void close() {
-                // do nothing for now
-            }
-        });
+        ArdwloopStarter.get().start(program);
     }
 
     public void exit() {

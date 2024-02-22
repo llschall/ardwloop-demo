@@ -22,12 +22,12 @@ public class DemoProgram implements IArdwProgram {
 
     @Override
     public int getRc() {
-        return 2;
+        return 1;
     }
 
     @Override
     public int getSc() {
-        return 2;
+        return 1;
     }
 
     public void switchLed(boolean isOn) {

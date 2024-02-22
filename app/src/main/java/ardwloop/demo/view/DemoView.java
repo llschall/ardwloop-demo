@@ -6,6 +6,8 @@ import ardwloop.demo.model.DemoModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class DemoView extends JFrame {
 
@@ -28,6 +30,9 @@ public class DemoView extends JFrame {
         add(new LinePanel(controller, DemoCommands.START));
         add(new LinePanel(controller, DemoCommands.LED_ON, DemoCommands.LED_OFF));
         add(new LinePanel(controller, DemoCommands.EXIT));
+
+        addKeyListener(new DemoKeyListener(controller));
+
         setVisible(true);
     }
 }
@@ -38,5 +43,29 @@ class LinePanel extends JPanel {
         for (DemoCommands command : commands) {
             add(new DemoButton(controller, command));
         }
+    }
+}
+
+class DemoKeyListener implements KeyListener {
+
+    final DemoController controller;
+
+    DemoKeyListener(DemoController controller) {
+        this.controller = controller;
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // do nothing
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        // do nothing
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // do nothing
     }
 }

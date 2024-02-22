@@ -1,4 +1,7 @@
-package ardwloop.demo.controller;
+package ardwloop.demo.view;
+
+import ardwloop.demo.controller.DemoCommands;
+import ardwloop.demo.controller.DemoController;
 
 import javax.swing.*;
 

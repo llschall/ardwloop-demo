@@ -2,6 +2,7 @@ package ardwloop.demo.controller;
 
 import ardwloop.demo.model.DemoModel;
 import ardwloop.demo.utils.DemoException;
+import ardwloop.demo.view.DemoButton;
 import ardwloop.demo.view.DemoView;
 
 import java.awt.event.ActionEvent;
@@ -21,10 +22,15 @@ public class DemoController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source instanceof DemoButton button) {
-            switch (button.command) {
+            DemoCommands command = button.command;
+            switch (command) {
                 case START -> model.start();
+                case LED_ON -> model.switchLed(true);
+                case LED_OFF -> model.switchLed(false);
                 case EXIT -> model.exit();
+                default -> throw new DemoException("Unexpected command:" + command.name());
             }
+            return;
         }
         throw new DemoException("Unexpected event: "+e.getClass().getName());
     }

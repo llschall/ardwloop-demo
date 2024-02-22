@@ -32,11 +32,9 @@ public class DemoView extends JFrame {
     }
 }
 
-
 class LinePanel extends JPanel {
-
     public LinePanel(DemoController controller, DemoCommands... commands) {
-        super(new FlowLayout());
+        setBorder(BorderFactory.createEtchedBorder());
         for (DemoCommands command : commands) {
             add(new DemoButton(controller, command));
         }

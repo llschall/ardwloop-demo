@@ -31,6 +31,8 @@ public class DemoView extends JFrame {
         add(new LinePanel(controller, DemoCommands.LED_ON, DemoCommands.LED_OFF));
         add(new LinePanel(controller, DemoCommands.EXIT));
 
+        setFocusable(true);
+        requestFocusInWindow();
         addKeyListener(new DemoKeyListener(controller));
 
         setVisible(true);
@@ -41,7 +43,9 @@ class LinePanel extends JPanel {
     public LinePanel(DemoController controller, DemoCommands... commands) {
         setBorder(BorderFactory.createEtchedBorder());
         for (DemoCommands command : commands) {
-            add(new DemoButton(controller, command));
+            DemoButton button = new DemoButton(controller, command);
+            button.setFocusable(false);
+            add(button);
         }
     }
 }
@@ -61,7 +65,10 @@ class DemoKeyListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // do nothing
+        char c = e.getKeyChar();
+        if (KeyEvent.VK_ESCAPE==c) {
+            controller.handleCommand(DemoCommands.EXIT);
+        }
     }
 
     @Override

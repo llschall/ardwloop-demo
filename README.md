@@ -4,9 +4,13 @@
 
 Welcome to ardwloop demo !
 
-Run ardwloop.demo.***StartDemo***.main() to start the demo.
+## Setup (Linux)
 
-It is located in
-*app/src/main/java/ardwloop/demo/StartDemo.java*
+Run the following from any folder.
+
+```
+git clone https://github.com/llschall/ardwloop-demo;
+./ardwloop-demo/gradlew -p ardwloop-demo run;
+```
 
 ***But for now there is not a lot to see ^^***

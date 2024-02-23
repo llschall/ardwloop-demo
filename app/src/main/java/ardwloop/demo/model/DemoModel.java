@@ -1,6 +1,7 @@
 package ardwloop.demo.model;
 
 import org.llschall.ardwloop.ArdwloopStarter;
+import org.llschall.ardwloop.motor.AbstractLoop;
 
 public class DemoModel {
 
@@ -8,8 +9,8 @@ public class DemoModel {
 
     boolean isConnected;
 
-    public void start() {
-        ArdwloopStarter.get().start(program);
+    public void start(AbstractLoop refresher) {
+        ArdwloopStarter.get().start(program, refresher);
     }
 
     public void switchLed(boolean isOn) {

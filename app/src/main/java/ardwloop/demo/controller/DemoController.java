@@ -30,7 +30,7 @@ public class DemoController implements ActionListener {
 
     public void handleCommand(DemoCommands command) {
         switch (command) {
-            case START -> model.start();
+            case START -> model.start(view.getRefresher());
             case LED_ON -> model.switchLed(true);
             case LED_OFF -> model.switchLed(false);
             case EXIT -> model.exit();

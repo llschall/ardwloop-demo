@@ -3,6 +3,8 @@ package ardwloop.demo.view;
 import ardwloop.demo.controller.DemoCommands;
 import ardwloop.demo.controller.DemoController;
 import ardwloop.demo.model.DemoModel;
+import org.llschall.ardwloop.ArdwloopStarter;
+import org.llschall.ardwloop.motor.AbstractLoop;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,29 +15,44 @@ public class DemoView extends JFrame {
 
     DemoModel model;
 
+    AbstractLoop refresher;
+
     public DemoView(DemoModel model) {
         this.model = model;
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setTitle("ardwloop demo");
+        setTitle("Ardwloop Demo");
         setSize(400, 300);
     }
 
     public void init(DemoController controller) {
 
+        refresher = new DemoViewRefresher(this);
+
+        JLabel versionLbl = new JLabel("Featuring Ardwloop " + ArdwloopStarter.ARDWLOOP_VERSION);
+        versionLbl.setBorder(BorderFactory.createEtchedBorder());
+
         JLabel connectionLbl = new JLabel();
         connectionLbl.setText(model.isConnected() ? "Connected" : "Not connected");
 
-        setLayout(new GridLayout(0, 1));
-        add(new LinePanel(controller, DemoCommands.START));
-        add(new LinePanel(controller, DemoCommands.LED_ON, DemoCommands.LED_OFF));
-        add(new LinePanel(controller, DemoCommands.EXIT));
+        JPanel commandPnl = new JPanel(new GridLayout(0, 1));
+        commandPnl.add(new LinePanel(controller, DemoCommands.START));
+        commandPnl.add(new LinePanel(controller, DemoCommands.LED_ON, DemoCommands.LED_OFF));
+        commandPnl.add(new LinePanel(controller, DemoCommands.EXIT));
+
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.PAGE_AXIS));
+        add(versionLbl);
+        add(commandPnl);
 
         setFocusable(true);
         requestFocusInWindow();
         addKeyListener(new DemoKeyListener(controller));
 
         setVisible(true);
+    }
+
+    public AbstractLoop getRefresher() {
+        return refresher;
     }
 }
 

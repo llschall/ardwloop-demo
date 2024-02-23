@@ -30,7 +30,9 @@ public class DemoView extends JFrame {
         refresher = new DemoViewRefresher(this);
 
         JLabel versionLbl = new JLabel("Featuring Ardwloop " + ArdwloopStarter.ARDWLOOP_VERSION);
-        versionLbl.setBorder(BorderFactory.createEtchedBorder());
+        versionLbl.setFont(versionLbl.getFont().deriveFont(Font.ITALIC, 9f));
+        JPanel versionPnl = new JPanel(new FlowLayout());
+        versionPnl.add(versionLbl);
 
         JLabel connectionLbl = new JLabel();
         connectionLbl.setText(model.isConnected() ? "Connected" : "Not connected");
@@ -41,7 +43,7 @@ public class DemoView extends JFrame {
         commandPnl.add(new LinePanel(controller, DemoCommands.EXIT));
 
         setLayout(new BoxLayout(getContentPane(), BoxLayout.PAGE_AXIS));
-        add(versionLbl);
+        add(versionPnl);
         add(commandPnl);
 
         setFocusable(true);

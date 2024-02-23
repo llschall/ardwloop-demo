@@ -17,6 +17,8 @@ public class DemoView extends JFrame {
 
     AbstractLoop refresher;
 
+    StartPanel startPnl;
+
     public DemoView(DemoModel model) {
         this.model = model;
 
@@ -27,18 +29,15 @@ public class DemoView extends JFrame {
 
     public void init(DemoController controller) {
 
-        refresher = new DemoViewRefresher(this);
+        refresher = new DemoRefresher(this);
 
         JLabel versionLbl = new JLabel("Featuring Ardwloop " + ArdwloopStarter.ARDWLOOP_VERSION);
         versionLbl.setFont(versionLbl.getFont().deriveFont(Font.ITALIC, 9f));
         JPanel versionPnl = new JPanel(new FlowLayout());
         versionPnl.add(versionLbl);
 
-        JLabel connectionLbl = new JLabel();
-        connectionLbl.setText(model.isConnected() ? "Connected" : "Not connected");
-
         JPanel commandPnl = new JPanel(new GridLayout(0, 1));
-        StartPanel startPnl = new StartPanel(controller);
+        startPnl = new StartPanel(controller);
         commandPnl.add(startPnl);
         commandPnl.add(new LinePanel(controller, DemoCommands.LED_ON, DemoCommands.LED_OFF));
         commandPnl.add(new LinePanel(controller, DemoCommands.EXIT));
@@ -56,6 +55,10 @@ public class DemoView extends JFrame {
 
     public AbstractLoop getRefresher() {
         return refresher;
+    }
+
+    public void refresh() {
+        startPnl.refresh(model.isConnected());
     }
 }
 

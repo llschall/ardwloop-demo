@@ -2,22 +2,22 @@ package ardwloop.demo.view;
 
 import org.llschall.ardwloop.motor.AbstractLoop;
 
-public class DemoViewRefresher extends AbstractLoop {
+public class DemoRefresher extends AbstractLoop {
 
     final DemoView view;
 
-    protected DemoViewRefresher(DemoView view) {
+    protected DemoRefresher(DemoView view) {
         super("Refresher");
         this.view = view;
     }
 
     @Override
     public void loop() {
-        System.out.println("Refresher.loop");
+        view.refresh();
     }
 
     @Override
     public void close() {
-        System.out.println("Refresher.close");
+        // do nothing
     }
 }

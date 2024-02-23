@@ -38,7 +38,8 @@ public class DemoView extends JFrame {
         connectionLbl.setText(model.isConnected() ? "Connected" : "Not connected");
 
         JPanel commandPnl = new JPanel(new GridLayout(0, 1));
-        commandPnl.add(new LinePanel(controller, DemoCommands.START));
+        StartPanel startPnl = new StartPanel(controller);
+        commandPnl.add(startPnl);
         commandPnl.add(new LinePanel(controller, DemoCommands.LED_ON, DemoCommands.LED_OFF));
         commandPnl.add(new LinePanel(controller, DemoCommands.EXIT));
 

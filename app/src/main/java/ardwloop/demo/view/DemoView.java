@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Arrays;
 
 public class DemoView extends JFrame {
 
@@ -37,10 +38,15 @@ public class DemoView extends JFrame {
         versionPnl.add(versionLbl);
 
         JPanel commandPnl = new JPanel(new GridLayout(0, 1));
+
         startPnl = new StartPanel(controller);
-        commandPnl.add(startPnl);
-        commandPnl.add(new LinePanel(controller, DemoCommands.LED_ON, DemoCommands.LED_OFF));
-        commandPnl.add(new LinePanel(controller, DemoCommands.EXIT));
+        LinePanel ledPnl = new LinePanel(controller, DemoCommands.LED_ON, DemoCommands.LED_OFF);
+        LinePanel exitPnl = new LinePanel(controller, DemoCommands.EXIT);
+
+        for (JPanel pnl : Arrays.asList(startPnl, ledPnl, exitPnl)) {
+            pnl.setBorder(BorderFactory.createEtchedBorder());
+            commandPnl.add(pnl);
+        }
 
         setLayout(new BoxLayout(getContentPane(), BoxLayout.PAGE_AXIS));
         add(versionPnl);
@@ -64,7 +70,6 @@ public class DemoView extends JFrame {
 
 class LinePanel extends JPanel {
     public LinePanel(DemoController controller, DemoCommands... commands) {
-        setBorder(BorderFactory.createEtchedBorder());
         for (DemoCommands command : commands) {
             DemoButton button = new DemoButton(controller, command);
             button.setFocusable(false);

@@ -64,7 +64,10 @@ public class DemoView extends JFrame {
     }
 
     public void refresh() {
-        startPnl.refresh(model.isConnected());
+        startPnl.refresh(
+                model.getPortName(),
+                model.isConnected()
+        );
     }
 }
 

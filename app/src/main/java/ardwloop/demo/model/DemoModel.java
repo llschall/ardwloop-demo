@@ -25,4 +25,8 @@ public class DemoModel {
     public boolean isConnected() {
         return model.serialMdl.connected.get();
     }
+
+    public String getPortName() {
+        return model.serialMdl.port.name.get();
+    }
 }

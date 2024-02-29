@@ -4,7 +4,7 @@
 
 Welcome to ardwloop demo !
 
-## Setup (Linux)
+## Setup (Windows / Linux)
 
 Run the following from any folder.
 

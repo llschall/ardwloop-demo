@@ -1,7 +1,9 @@
 package ardwloop.demo.model;
 
 import org.llschall.ardwloop.IArdwProgram;
+import org.llschall.ardwloop.structure.data.LoopData;
 import org.llschall.ardwloop.structure.data.SerialData;
+import org.llschall.ardwloop.structure.data.SetupData;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -10,14 +12,26 @@ public class DemoProgram implements IArdwProgram {
     final AtomicBoolean isLedOn = new AtomicBoolean();
 
     @Override
-    public SerialData loop(SerialData serialData) {
+    public LoopData ardwLoop(LoopData serialData) {
         int v = isLedOn.get()?1:0;
-        return new SerialData(1,v,3,4,5,6);
+        return new LoopData(new SerialData(1,v,3,4,5,6));
     }
 
     @Override
-    public SerialData setup(SerialData serialData) {
-        return new SerialData(1,2,3,4,5,6);
+    public SetupData ardwSetup(SetupData serialData) {
+        return new SetupData(
+                new SerialData(1,2,3,4,5,6));
+    }
+
+
+    @Override
+    public int getReadDelayMs() {
+        return 99;
+    }
+
+    @Override
+    public int getPostDelayMs() {
+        return 9999;
     }
 
     @Override

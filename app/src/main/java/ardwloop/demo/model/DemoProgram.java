@@ -6,21 +6,27 @@ import org.llschall.ardwloop.structure.data.SerialData;
 import org.llschall.ardwloop.structure.data.SetupData;
 
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class DemoProgram implements IArdwProgram {
 
     final AtomicBoolean isLedOn = new AtomicBoolean();
+    final AtomicInteger count = new AtomicInteger();
 
     @Override
-    public LoopData ardwLoop(LoopData serialData) {
-        int v = isLedOn.get()?1:0;
-        return new LoopData(new SerialData(1,v,3,4,5,6));
+    public LoopData ardwLoop(LoopData loop) {
+
+        int x = loop.getData().a.x;
+        count.set(x);
+
+        int v = isLedOn.get() ? 1 : 0;
+        return new LoopData(new SerialData(1, v, 3, 4, 5, 6));
     }
 
     @Override
-    public SetupData ardwSetup(SetupData serialData) {
+    public SetupData ardwSetup(SetupData setup) {
         return new SetupData(
-                new SerialData(1,2,3,4,5,6));
+                new SerialData(1, 2, 3, 4, 5, 6));
     }
 
 

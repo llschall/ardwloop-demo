@@ -19,6 +19,7 @@ public class DemoView extends JFrame {
     AbstractLoop refresher;
 
     StartPanel startPnl;
+    LedPanel ledPnl;
 
     public DemoView(DemoModel model) {
         this.model = model;
@@ -40,7 +41,7 @@ public class DemoView extends JFrame {
         JPanel commandPnl = new JPanel(new GridLayout(0, 1));
 
         startPnl = new StartPanel(controller);
-        LinePanel ledPnl = new LinePanel(controller, DemoCommands.LED_ON, DemoCommands.LED_OFF);
+        ledPnl = new LedPanel(controller);
         LinePanel exitPnl = new LinePanel(controller, DemoCommands.EXIT);
 
         for (JPanel pnl : Arrays.asList(startPnl, ledPnl, exitPnl)) {
@@ -67,6 +68,8 @@ public class DemoView extends JFrame {
         startPnl.refresh(
                 model.getPortName(),
                 model.isConnected()
+        );
+        ledPnl.refresh(model.getCount()
         );
     }
 }
@@ -97,7 +100,7 @@ class DemoKeyListener implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         char c = e.getKeyChar();
-        if (KeyEvent.VK_ESCAPE==c) {
+        if (KeyEvent.VK_ESCAPE == c) {
             controller.handleCommand(DemoCommands.EXIT);
         }
     }

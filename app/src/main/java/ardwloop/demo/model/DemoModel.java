@@ -18,6 +18,10 @@ public class DemoModel {
         program.switchLed(isOn);
     }
 
+    public int getCount() {
+        return program.count.get();
+    }
+
     public void exit() {
         System.exit(0);
     }

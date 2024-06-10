@@ -14,6 +14,10 @@ public class DemoModel {
         model = ArdwloopStarter.get().start(program, refresher);
     }
 
+    public void switchLed() {
+        program.switchLed();
+    }
+
     public void switchLed(boolean isOn) {
         program.switchLed(isOn);
     }

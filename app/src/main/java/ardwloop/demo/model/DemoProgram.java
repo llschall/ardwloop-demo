@@ -50,6 +50,10 @@ public class DemoProgram implements IArdwProgram {
         return 1;
     }
 
+    public void switchLed() {
+        isLedOn.set(!isLedOn.get());
+    }
+
     public void switchLed(boolean isOn) {
         isLedOn.set(isOn);
     }

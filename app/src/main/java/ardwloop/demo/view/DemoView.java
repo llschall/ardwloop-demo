@@ -33,7 +33,7 @@ public class DemoView extends JFrame {
 
         refresher = new DemoRefresher(this);
 
-        JLabel versionLbl = new JLabel("Featuring Ardwloop " + ArdwloopStarter.ARDWLOOP_VERSION);
+        JLabel versionLbl = new JLabel("Featuring Ardwloop " + ArdwloopStarter.VERSION);
         versionLbl.setFont(versionLbl.getFont().deriveFont(Font.ITALIC, 9f));
         JPanel versionPnl = new JPanel(new FlowLayout());
         versionPnl.add(versionLbl);

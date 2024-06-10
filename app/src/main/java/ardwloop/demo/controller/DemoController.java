@@ -25,7 +25,7 @@ public class DemoController implements ActionListener {
             handleCommand(button.command);
             return;
         }
-        throw new DemoException("Unexpected event: "+e.getClass().getName());
+        throw new DemoException("Unexpected event: " + e.getClass().getName());
     }
 
     public void handleCommand(DemoCommands command) {
@@ -33,6 +33,7 @@ public class DemoController implements ActionListener {
             case START -> model.start(view.getRefresher());
             case LED_ON -> model.switchLed(true);
             case LED_OFF -> model.switchLed(false);
+            case SWITCH -> model.switchLed();
             case EXIT -> model.exit();
             default -> throw new DemoException("Unexpected command:" + command.name());
         }

@@ -13,7 +13,12 @@ public class LedPanel extends JPanel {
     public LedPanel(DemoController controller) {
 
         setLayout(new BorderLayout());
-        add(new LinePanel(controller, DemoCommands.LED_ON, DemoCommands.LED_OFF), BorderLayout.CENTER);
+        add(new LinePanel(
+                controller,
+                DemoCommands.LED_ON,
+                DemoCommands.LED_OFF,
+                DemoCommands.SWITCH
+        ), BorderLayout.CENTER);
         add(countLbl, BorderLayout.SOUTH);
     }
 

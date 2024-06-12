@@ -14,7 +14,7 @@ public class SetupTest {
 
     @Test
     public void checkVersion() {
-        assertEquals(1001, ArdwloopStarter.VERSION_INT);
+        assertEquals(1003, ArdwloopStarter.VERSION_INT);
     }
 
 }

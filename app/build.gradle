@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     // Integrate ardwloop
-    implementation 'io.github.llschall:ardwloop:0.1.3-SNAPSHOT'
+    implementation 'io.github.llschall:ardwloop:0.1.4'
     // This dependency is used by the application.
     implementation libs.guava
     // Use JUnit Jupiter for testing.

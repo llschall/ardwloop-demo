@@ -4,9 +4,11 @@ import ardwloop.demo.model.DemoModel;
 import ardwloop.demo.utils.DemoException;
 import ardwloop.demo.view.DemoButton;
 import ardwloop.demo.view.DemoView;
+import org.llschall.ardwloop.serial.ArdwPortDescriptor;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class DemoController implements ActionListener {
 
@@ -30,13 +32,18 @@ public class DemoController implements ActionListener {
 
     public void handleCommand(DemoCommands command) {
         switch (command) {
+            case LIST -> listPorts();
             case START -> model.start(view.getRefresher());
             case LED_ON -> model.switchLed(true);
             case LED_OFF -> model.switchLed(false);
             case SWITCH -> model.switchLed();
             case EXIT -> model.exit();
-            default -> throw new DemoException("Unexpected command:" + command.name());
         }
+    }
+
+    void listPorts() {
+        List<ArdwPortDescriptor> list = model.listPorts();
+        view.portPnl.refresh(list);
     }
 
     public void launch() {

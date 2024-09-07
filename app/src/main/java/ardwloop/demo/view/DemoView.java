@@ -18,6 +18,7 @@ public class DemoView extends JFrame {
 
     AbstractLoop refresher;
 
+    public PortPanel portPnl;
     StartPanel startPnl;
     LedPanel ledPnl;
 
@@ -38,13 +39,13 @@ public class DemoView extends JFrame {
         JPanel versionPnl = new JPanel(new FlowLayout());
         versionPnl.add(versionLbl);
 
-        JPanel commandPnl = new JPanel(new GridLayout(0, 1));
-
+        portPnl = new PortPanel(controller);
         startPnl = new StartPanel(controller);
         ledPnl = new LedPanel(controller);
         LinePanel exitPnl = new LinePanel(controller, DemoCommands.EXIT);
 
-        for (JPanel pnl : Arrays.asList(startPnl, ledPnl, exitPnl)) {
+        JPanel commandPnl = new JPanel(new GridLayout(0, 1));
+        for (JPanel pnl : Arrays.asList(portPnl, startPnl, ledPnl, exitPnl)) {
             pnl.setBorder(BorderFactory.createEtchedBorder());
             commandPnl.add(pnl);
         }

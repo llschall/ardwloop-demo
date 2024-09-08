@@ -38,12 +38,11 @@ public class DemoView extends JFrame {
         JPanel versionPnl = new JPanel(new FlowLayout());
         versionPnl.add(versionLbl);
 
-        JPanel commandPnl = new JPanel(new GridLayout(0, 1));
-
         startPnl = new StartPanel(controller);
         ledPnl = new LedPanel(controller);
         LinePanel exitPnl = new LinePanel(controller, DemoCommands.EXIT);
 
+        JPanel commandPnl = new JPanel(new GridLayout(0, 1));
         for (JPanel pnl : Arrays.asList(startPnl, ledPnl, exitPnl)) {
             pnl.setBorder(BorderFactory.createEtchedBorder());
             commandPnl.add(pnl);

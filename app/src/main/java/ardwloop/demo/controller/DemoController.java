@@ -32,18 +32,12 @@ public class DemoController implements ActionListener {
 
     public void handleCommand(DemoCommands command) {
         switch (command) {
-            case LIST -> listPorts();
             case START -> model.start(view.getRefresher());
             case LED_ON -> model.switchLed(true);
             case LED_OFF -> model.switchLed(false);
             case SWITCH -> model.switchLed();
             case EXIT -> model.exit();
         }
-    }
-
-    void listPorts() {
-        List<ArdwPortDescriptor> list = model.listPorts();
-        view.portPnl.refresh(list);
     }
 
     public void launch() {

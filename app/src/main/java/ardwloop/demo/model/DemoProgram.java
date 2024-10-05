@@ -29,7 +29,6 @@ public class DemoProgram implements IArdwProgram {
                 new SerialData(1, 2, 3, 4, 5, 6));
     }
 
-
     @Override
     public int getReadDelayMs() {
         return 99;

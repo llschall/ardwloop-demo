@@ -93,7 +93,13 @@ record DemoKeyListener(DemoController controller) implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         char c = e.getKeyChar();
-        if (KeyEvent.VK_ESCAPE == c) {
+        if (c == 's') {
+            controller.handleCommand(DemoCommands.START);
+        }
+        if (c == KeyEvent.VK_SPACE) {
+            controller.handleCommand(DemoCommands.SWITCH);
+        }
+        if (c == KeyEvent.VK_ESCAPE) {
             controller.handleCommand(DemoCommands.EXIT);
         }
     }

@@ -5,17 +5,12 @@ import org.llschall.ardwloop.ArdwloopStarter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SetupTest {
-
-    @Test
-    public void testSetup() {
-        assertEquals(2, 1 + 1);
-    }
+public class BuildTest {
 
     @Test
     public void checkVersion() {
-        assertEquals("0.1.6", ArdwloopStarter.VERSION);
-        assertEquals(1003, ArdwloopStarter.VERSION_INT);
+        assertEquals("0.1.7", ArdwloopStarter.VERSION);
+        assertEquals(1001, ArdwloopStarter.VERSION_INT);
     }
 
 }

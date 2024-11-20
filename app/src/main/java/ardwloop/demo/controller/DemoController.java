@@ -4,12 +4,13 @@ import ardwloop.demo.model.DemoModel;
 import ardwloop.demo.utils.DemoException;
 import ardwloop.demo.view.DemoButton;
 import ardwloop.demo.view.DemoView;
-import org.llschall.ardwloop.serial.ArdwPortDescriptor;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
+/**
+ * The Controller of the MVC pattern.
+ */
 public class DemoController implements ActionListener {
 
     final DemoModel model;

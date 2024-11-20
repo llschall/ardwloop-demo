@@ -12,9 +12,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Arrays;
 
+/**
+ * The View of the MVC pattern.
+ */
 public class DemoView extends JFrame {
 
-    DemoModel model;
+    final DemoModel model;
 
     AbstractLoop refresher;
 
@@ -83,13 +86,7 @@ class LinePanel extends JPanel {
     }
 }
 
-class DemoKeyListener implements KeyListener {
-
-    final DemoController controller;
-
-    DemoKeyListener(DemoController controller) {
-        this.controller = controller;
-    }
+record DemoKeyListener(DemoController controller) implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -99,7 +96,13 @@ class DemoKeyListener implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         char c = e.getKeyChar();
-        if (KeyEvent.VK_ESCAPE == c) {
+        if (c == 's') {
+            controller.handleCommand(DemoCommands.START);
+        }
+        if (c == KeyEvent.VK_SPACE) {
+            controller.handleCommand(DemoCommands.SWITCH);
+        }
+        if (c == KeyEvent.VK_ESCAPE) {
             controller.handleCommand(DemoCommands.EXIT);
         }
     }

@@ -17,12 +17,27 @@ public class DemoProgram implements IArdwProgram {
     /// True if the LED should be switched on the Arduino board.
     final AtomicBoolean isLedOn = new AtomicBoolean();
 
-    ///  The count received from the Arduino board.
+    /// The count received from the Arduino board.
     final AtomicInteger count = new AtomicInteger();
+
+    /**
+     * Switches the isLedOn value to its other one.
+     */
+    public void switchLed() {
+        isLedOn.set(!isLedOn.get());
+    }
+
+    /**
+     * @param isOn THe new value for isLedOn
+     */
+    public void switchLed(boolean isOn) {
+        isLedOn.set(isOn);
+    }
 
     /// Called once, after the communication with the Arduino is established.
     @Override
     public SetupData ardwSetup(SetupData setup) {
+        // These values do not matter here, as the Arduino board won't process them anyhow.
         return new SetupData(
                 new SerialData(-1, 2, 3, 4, 5, 6));
     }
@@ -77,11 +92,4 @@ public class DemoProgram implements IArdwProgram {
         return 1;
     }
 
-    public void switchLed() {
-        isLedOn.set(!isLedOn.get());
-    }
-
-    public void switchLed(boolean isOn) {
-        isLedOn.set(isOn);
-    }
 }

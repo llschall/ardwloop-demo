@@ -8,6 +8,9 @@ import org.llschall.ardwloop.structure.model.ArdwloopModel;
 
 import java.util.List;
 
+/**
+ * The Model of the MVC pattern.
+ */
 public class DemoModel {
 
     final DemoProgram program = new DemoProgram();

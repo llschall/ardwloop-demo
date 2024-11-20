@@ -12,6 +12,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Arrays;
 
+/**
+ * The View of the MVC pattern.
+ */
 public class DemoView extends JFrame {
 
     final DemoModel model;

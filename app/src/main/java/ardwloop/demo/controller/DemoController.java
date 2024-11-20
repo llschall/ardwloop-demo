@@ -8,6 +8,9 @@ import ardwloop.demo.view.DemoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * The Controller of the MVC pattern.
+ */
 public class DemoController implements ActionListener {
 
     final DemoModel model;

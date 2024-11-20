@@ -18,8 +18,6 @@ repositories {
 dependencies {
     // Integrate ardwloop
     implementation 'io.github.llschall:ardwloop:0.1.7'
-    // This dependency is used by the application.
-    implementation libs.guava
     // Use JUnit Jupiter for testing.
     testImplementation libs.junit.jupiter
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

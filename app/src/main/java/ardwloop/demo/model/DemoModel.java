@@ -10,7 +10,7 @@ import java.util.List;
 
 public class DemoModel {
 
-    DemoProgram program = new DemoProgram();
+    final DemoProgram program = new DemoProgram();
 
     ArdwloopModel model;
 

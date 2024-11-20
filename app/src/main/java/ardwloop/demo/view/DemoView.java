@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 public class DemoView extends JFrame {
 
-    DemoModel model;
+    final DemoModel model;
 
     AbstractLoop refresher;
 
@@ -83,13 +83,7 @@ class LinePanel extends JPanel {
     }
 }
 
-class DemoKeyListener implements KeyListener {
-
-    final DemoController controller;
-
-    DemoKeyListener(DemoController controller) {
-        this.controller = controller;
-    }
+record DemoKeyListener(DemoController controller) implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {

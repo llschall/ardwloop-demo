@@ -9,7 +9,7 @@ public class BuildTest {
 
     @Test
     public void checkVersion() {
-        assertEquals("0.1.7", ArdwloopStarter.VERSION);
+        assertEquals("0.1.8", ArdwloopStarter.VERSION);
         assertEquals(1001, ArdwloopStarter.VERSION_INT);
     }
 

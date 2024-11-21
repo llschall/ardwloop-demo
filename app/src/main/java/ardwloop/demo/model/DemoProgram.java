@@ -38,8 +38,7 @@ public class DemoProgram implements IArdwProgram {
     @Override
     public SetupData ardwSetup(SetupData setup) {
         // These values do not matter here, as the Arduino board won't process them anyhow.
-        return new SetupData(
-                new SerialData(-1, 2, 3, 4, 5, 6));
+        return new SetupData(0);
     }
 
     /**
@@ -56,7 +55,7 @@ public class DemoProgram implements IArdwProgram {
         // ****************************************************
 
         // Retrieve the a.x value provided by the Arduino board.
-        int x = loop.getData().a.x;
+        int x = loop.a.x;
 
         // Update the count with the x value.
         count.set(x);
@@ -65,21 +64,11 @@ public class DemoProgram implements IArdwProgram {
         // 2) Set and wrap the data to be sent and processed by the Arduino board.
         // ***********************************************************************
 
-        // Set v with 1 if the Arduino board should switch on the LED, if it should switch off the LED.
+        // Set v with 1 if the Arduino board should switch on the LED, with 0 if it should switch off the LED.
         int v = isLedOn.get() ? 1 : 0;
 
         // Wrap v in the appropriate Data instances, that will be imminently sent to the Arduino board.
-        return new LoopData(new SerialData(-1, v, 3, 4, 5, 6));
-    }
-
-    @Override
-    public int getReadDelayMs() {
-        return 99;
-    }
-
-    @Override
-    public int getPostDelayMs() {
-        return 9999;
+        return new LoopData(v, 0, 0, 0, 0);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class CustomSelector implements IArdwPortSelector {
     @Override
     public boolean select(@NotNull ArdwPortDescriptor descriptor) {
         if (selector.select(descriptor)) return true;
-        return descriptor.getName().contains("Arduino");
+        return descriptor.getName().contains("Arduino") || descriptor.getName().contains("CH340");
     }
 
     @NotNull

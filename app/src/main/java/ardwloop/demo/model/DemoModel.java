@@ -3,7 +3,7 @@ package ardwloop.demo.model;
 import org.llschall.ardwloop.ArdwloopStarter;
 import org.llschall.ardwloop.motor.AbstractLoop;
 import org.llschall.ardwloop.serial.ArdwPortDescriptor;
-import org.llschall.ardwloop.serial.ArdwPortSelector;
+import org.llschall.ardwloop.serial.DefaultPortSelector;
 import org.llschall.ardwloop.structure.model.ArdwloopModel;
 
 import java.util.List;
@@ -45,10 +45,5 @@ public class DemoModel {
 
     public String getPortName() {
         return model.serialMdl.port.name.get();
-    }
-
-    public List<ArdwPortDescriptor> listPorts() {
-        ArdwPortSelector selector = new ArdwPortSelector();
-        return selector.list();
     }
 }

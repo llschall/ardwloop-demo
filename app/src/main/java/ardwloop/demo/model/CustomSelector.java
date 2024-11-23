@@ -2,14 +2,14 @@ package ardwloop.demo.model;
 
 import org.jetbrains.annotations.NotNull;
 import org.llschall.ardwloop.serial.ArdwPortDescriptor;
-import org.llschall.ardwloop.serial.ArdwPortSelector;
+import org.llschall.ardwloop.serial.DefaultPortSelector;
 import org.llschall.ardwloop.serial.IArdwPortSelector;
 
 import java.util.List;
 
 public class CustomSelector implements IArdwPortSelector {
 
-    final ArdwPortSelector selector = new ArdwPortSelector();
+    final DefaultPortSelector selector = new DefaultPortSelector();
 
     @Override
     public boolean select(@NotNull ArdwPortDescriptor descriptor) {

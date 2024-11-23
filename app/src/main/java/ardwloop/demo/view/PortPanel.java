@@ -5,10 +5,7 @@ import org.llschall.ardwloop.serial.ArdwPortDescriptor;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 class PortPanel extends JPanel {
@@ -50,7 +47,7 @@ class PortPanel extends JPanel {
 
 class DemoTableModel extends DefaultTableModel {
 
-    String[] colums = {"Valid", "Name", "Description", "System Name"};
+    final String[] colums = {"Valid", "Name", "Description", "System Name"};
 
 
     @Override

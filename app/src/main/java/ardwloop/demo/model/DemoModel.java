@@ -1,6 +1,7 @@
 package ardwloop.demo.model;
 
 import org.llschall.ardwloop.ArdwloopStarter;
+import org.llschall.ardwloop.IArdwConfig;
 import org.llschall.ardwloop.motor.AbstractLoop;
 import org.llschall.ardwloop.structure.model.ArdwloopModel;
 
@@ -15,8 +16,7 @@ public class DemoModel {
 
     public void start(AbstractLoop refresher) {
         ArdwloopStarter.get().setSelector(new CustomSelector());
-        model = ArdwloopStarter.get().start(program, refresher);
-        model.serialMdl.baud.set(9600);
+        model = ArdwloopStarter.get().start(program, IArdwConfig.BAUD_19200, refresher);
     }
 
     public void switchLed() {

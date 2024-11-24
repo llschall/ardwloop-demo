@@ -21,6 +21,7 @@ public class DemoView extends JFrame {
 
     AbstractLoop refresher;
 
+    PortPanel portPnl;
     StartPanel startPnl;
     LedPanel ledPnl;
 
@@ -29,7 +30,7 @@ public class DemoView extends JFrame {
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Ardwloop Demo");
-        setSize(400, 300);
+        setSize(400, 700);
     }
 
     public void init(DemoController controller) {
@@ -41,12 +42,13 @@ public class DemoView extends JFrame {
         JPanel versionPnl = new JPanel(new FlowLayout());
         versionPnl.add(versionLbl);
 
+        portPnl = new PortPanel();
         startPnl = new StartPanel(controller);
         ledPnl = new LedPanel(controller);
         LinePanel exitPnl = new LinePanel(controller, DemoCommands.EXIT);
 
         JPanel commandPnl = new JPanel(new GridLayout(0, 1));
-        for (JPanel pnl : Arrays.asList(startPnl, ledPnl, exitPnl)) {
+        for (JPanel pnl : Arrays.asList(portPnl, startPnl, ledPnl, exitPnl)) {
             pnl.setBorder(BorderFactory.createEtchedBorder());
             commandPnl.add(pnl);
         }

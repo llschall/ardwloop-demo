@@ -1,9 +1,9 @@
 package ardwloop.demo.model;
 
 import org.llschall.ardwloop.IArdwProgram;
-import org.llschall.ardwloop.structure.data.LoopData;
 import org.llschall.ardwloop.structure.data.SerialData;
-import org.llschall.ardwloop.structure.data.SetupData;
+import org.llschall.ardwloop.value.V;
+import org.llschall.ardwloop.value.ValueMap;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -36,9 +36,9 @@ public class DemoProgram implements IArdwProgram {
 
     /// Called once, after the communication with the Arduino is established.
     @Override
-    public SetupData ardwSetup(SetupData setup) {
+    public ValueMap ardwSetup(ValueMap setup) {
         // These values do not matter here, as the Arduino board won't process them anyhow.
-        return new SetupData(0);
+        return new ValueMap();
     }
 
     /**
@@ -48,14 +48,14 @@ public class DemoProgram implements IArdwProgram {
      * @return The {@link SerialData} to be sent to the Arduino board.
      */
     @Override
-    public LoopData ardwLoop(LoopData loop) {
+    public ValueMap ardwLoop(ValueMap loop) {
 
         // ****************************************************
         // 1) Process the data received from the Arduino board.
         // ****************************************************
 
         // Retrieve the a.x value provided by the Arduino board.
-        int x = loop.a.x;
+        int x = loop.a.get(V.x);
 
         // Update the count with the x value.
         count.set(x);
@@ -68,17 +68,7 @@ public class DemoProgram implements IArdwProgram {
         int v = isLedOn.get() ? 1 : 0;
 
         // Wrap v in the appropriate Data instances, that will be imminently sent to the Arduino board.
-        return new LoopData(v, 0, 0, 0, 0);
-    }
-
-    @Override
-    public int getRc() {
-        return 1;
-    }
-
-    @Override
-    public int getSc() {
-        return 1;
+        return new ValueMap(v, 0, 1, 0, 0);
     }
 
 }

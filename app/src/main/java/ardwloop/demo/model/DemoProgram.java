@@ -44,18 +44,18 @@ public class DemoProgram implements IArdwProgram {
     /**
      * Repeatedly called, in the same rhythm as the loop() method on the Arduino board.
      *
-     * @param loop The {@link SerialData} received by the Arduino board
-     * @return The {@link SerialData} to be sent to the Arduino board.
+     * @param input The {@link ValueMap} received by the Arduino board
+     * @return The {@link ValueMap} to be sent to the Arduino board.
      */
     @Override
-    public ValueMap ardwLoop(ValueMap loop) {
+    public ValueMap ardwLoop(ValueMap input) {
 
         // ****************************************************
         // 1) Process the data received from the Arduino board.
         // ****************************************************
 
         // Retrieve the a.x value provided by the Arduino board.
-        int x = loop.a.get(V.x);
+        int x = input.a.x;
 
         // Update the count with the x value.
         count.set(x);
@@ -67,8 +67,10 @@ public class DemoProgram implements IArdwProgram {
         // Set v with 1 if the Arduino board should switch on the LED, with 0 if it should switch off the LED.
         int v = isLedOn.get() ? 1 : 0;
 
-        // Wrap v in the appropriate Data instances, that will be imminently sent to the Arduino board.
-        return new ValueMap(v, 0, 1, 0, 0);
+        // Wrap v in the output, that will be imminently sent to the Arduino board.
+        ValueMap output = new ValueMap();
+        output.a.v = v;
+        return output;
     }
 
 }

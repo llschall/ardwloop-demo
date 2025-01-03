@@ -16,7 +16,7 @@ public class DemoModel {
 
     public void start(AbstractLoop refresher) {
         ArdwloopStarter.get().setSelector(new CustomSelector());
-        model = ArdwloopStarter.get().start(program, IArdwConfig.BAUD_19200, refresher);
+        model = ArdwloopStarter.get().start(program, IArdwConfig.BAUD_9600, refresher);
     }
 
     public void switchLed() {

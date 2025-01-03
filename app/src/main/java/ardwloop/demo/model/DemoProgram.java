@@ -1,9 +1,7 @@
 package ardwloop.demo.model;
 
 import org.llschall.ardwloop.IArdwProgram;
-import org.llschall.ardwloop.structure.data.SerialData;
-import org.llschall.ardwloop.value.V;
-import org.llschall.ardwloop.value.ValueMap;
+import org.llschall.ardwloop.value.SerialData;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -36,19 +34,19 @@ public class DemoProgram implements IArdwProgram {
 
     /// Called once, after the communication with the Arduino is established.
     @Override
-    public ValueMap ardwSetup(ValueMap setup) {
+    public SerialData ardwSetup(SerialData setup) {
         // These values do not matter here, as the Arduino board won't process them anyhow.
-        return new ValueMap();
+        return new SerialData();
     }
 
     /**
      * Repeatedly called, in the same rhythm as the loop() method on the Arduino board.
      *
-     * @param input The {@link ValueMap} received by the Arduino board
-     * @return The {@link ValueMap} to be sent to the Arduino board.
+     * @param input The {@link SerialData} received by the Arduino board
+     * @return The {@link SerialData} to be sent to the Arduino board.
      */
     @Override
-    public ValueMap ardwLoop(ValueMap input) {
+    public SerialData ardwLoop(SerialData input) {
 
         // ****************************************************
         // 1) Process the data received from the Arduino board.
@@ -68,7 +66,7 @@ public class DemoProgram implements IArdwProgram {
         int v = isLedOn.get() ? 1 : 0;
 
         // Wrap v in the output, that will be imminently sent to the Arduino board.
-        ValueMap output = new ValueMap();
+        SerialData output = new SerialData();
         output.a.v = v;
         return output;
     }

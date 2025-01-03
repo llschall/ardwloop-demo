@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     // Integrate ardwloop
-    implementation("io.github.llschall:ardwloop:0.3.0")
+    implementation("io.github.llschall:ardwloop:0.3.1")
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")

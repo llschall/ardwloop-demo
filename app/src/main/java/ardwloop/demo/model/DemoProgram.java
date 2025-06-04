@@ -18,6 +18,13 @@ public class DemoProgram implements IArdwProgram {
     /// The count received from the Arduino board.
     final AtomicInteger count = new AtomicInteger();
 
+    final AtomicInteger ax = new AtomicInteger();
+    final AtomicInteger ay = new AtomicInteger();
+    final AtomicInteger az = new AtomicInteger();
+    final AtomicInteger bx = new AtomicInteger();
+    final AtomicInteger by = new AtomicInteger();
+    final AtomicInteger bz = new AtomicInteger();
+
     /**
      * Switches the isLedOn value to its other one.
      */
@@ -57,6 +64,14 @@ public class DemoProgram implements IArdwProgram {
 
         // Update the count with the x value.
         count.set(x);
+
+        // Populate the ax, ay, az, bx, by, bz values with the data received from the Arduino board.
+        ax.set(input.a.x);
+        ay.set(input.a.y);
+        az.set(input.a.z);
+        bx.set(input.b.x);
+        by.set(input.b.y);
+        bz.set(input.b.z);
 
         // ***********************************************************************
         // 2) Set and wrap the data to be sent and processed by the Arduino board.

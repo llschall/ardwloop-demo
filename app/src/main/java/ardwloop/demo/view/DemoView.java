@@ -73,7 +73,13 @@ public class DemoView extends JFrame {
                 model.getPortName(),
                 model.isConnected()
         );
-        ledPnl.refresh(model.getCount()
+        ledPnl.refresh(model.getCount(),
+                model.getAx(),
+                model.getAy(),
+                model.getAz(),
+                model.getBx(),
+                model.getBy(),
+                model.getBz()
         );
     }
 }

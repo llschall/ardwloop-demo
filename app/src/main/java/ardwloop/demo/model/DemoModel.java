@@ -42,4 +42,28 @@ public class DemoModel {
     public String getPortName() {
         return model.serialMdl.port.name.get();
     }
+
+    public int getAx() {
+        return program.ax.get();
+    }
+
+    public int getAy() {
+        return program.ay.get();
+    }
+
+    public int getAz() {
+        return program.az.get();
+    }
+
+    public int getBx() {
+        return program.bx.get();
+    }
+
+    public int getBy() {
+        return program.by.get();
+    }
+
+    public int getBz() {
+        return program.bz.get();
+    }
 }

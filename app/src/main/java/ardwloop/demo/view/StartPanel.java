@@ -2,6 +2,7 @@ package ardwloop.demo.view;
 
 import ardwloop.demo.controller.DemoCommands;
 import ardwloop.demo.controller.DemoController;
+import org.llschall.ardwloop.ArdwloopStatus;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,9 +38,8 @@ class StartPanel extends JPanel {
 
     void refresh(String port, boolean isConnected) {
 
-        portLbl.setText("Port: "+port);
-        connectionLbl.setText(isConnected?"connected":"not connected");
+        portLbl.setText("Port: " + port);
 
-        setBackground(isConnected?Color.GREEN:Color.LIGHT_GRAY);
+        setBackground(isConnected ? Color.GREEN : Color.LIGHT_GRAY);
     }
 }

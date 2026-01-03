@@ -1,17 +1,22 @@
 package ardwloop.demo.model;
 
+import ardwloop.demo.view.DemoRefresher;
+import ardwloop.demo.view.DemoView;
+import kotlin.Function;
+import org.llschall.ardwloop.ArdwloopStatus;
 import org.llschall.ardwloop.IArdwProgram;
 import org.llschall.ardwloop.value.SerialData;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Consumer;
 
 /**
  * The {@link DemoProgram} class implements the {@link IArdwProgram}, which makes it responsible for the communication
  * with the Arduino Board.
  */
 public class DemoProgram implements IArdwProgram {
-
     /// True if the LED should be switched on the Arduino board.
     final AtomicBoolean isLedOn = new AtomicBoolean();
 
@@ -25,6 +30,12 @@ public class DemoProgram implements IArdwProgram {
     final AtomicInteger by = new AtomicInteger();
     final AtomicInteger bz = new AtomicInteger();
 
+    final Consumer<ArdwloopStatus> fireStatusChanged;
+
+    public DemoProgram(Consumer<ArdwloopStatus> fireStatusChanged) {
+        this.fireStatusChanged = fireStatusChanged;
+    }
+
     /**
      * Switches the isLedOn value to its other one.
      */
@@ -37,6 +48,11 @@ public class DemoProgram implements IArdwProgram {
      */
     public void switchLed(boolean isOn) {
         isLedOn.set(isOn);
+    }
+
+    @Override
+    public void fireStatusChanged(ArdwloopStatus status) {
+        fireStatusChanged.accept(status);
     }
 
     /// Called once, after the communication with the Arduino is established.

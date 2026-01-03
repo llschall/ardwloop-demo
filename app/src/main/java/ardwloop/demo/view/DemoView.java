@@ -4,6 +4,7 @@ import ardwloop.demo.controller.DemoCommands;
 import ardwloop.demo.controller.DemoController;
 import ardwloop.demo.model.DemoModel;
 import org.llschall.ardwloop.ArdwloopStarter;
+import org.llschall.ardwloop.ArdwloopStatus;
 import org.llschall.ardwloop.motor.AbstractLoop;
 
 import javax.swing.*;
@@ -66,6 +67,10 @@ public class DemoView extends JFrame {
 
     public AbstractLoop getRefresher() {
         return refresher;
+    }
+
+    public void refresh(ArdwloopStatus status) {
+        startPnl.connectionLbl.setText(status.name());
     }
 
     public void refresh() {

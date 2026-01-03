@@ -52,7 +52,6 @@ public class DemoProgram implements IArdwProgram {
 
     @Override
     public void fireStatusChanged(ArdwloopStatus status) {
-        System.out.println("status = " + status);
         fireStatusChanged.accept(status);
     }
 

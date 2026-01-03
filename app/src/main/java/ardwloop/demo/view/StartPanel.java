@@ -36,10 +36,9 @@ class StartPanel extends JPanel {
         centerPnl.setOpaque(false);
     }
 
-    void refresh(String port, ArdwloopStatus status, boolean isConnected) {
+    void refresh(String port, boolean isConnected) {
 
         portLbl.setText("Port: " + port);
-        connectionLbl.setText(status.name());
 
         setBackground(isConnected ? Color.GREEN : Color.LIGHT_GRAY);
     }

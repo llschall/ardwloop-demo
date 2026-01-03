@@ -17,8 +17,6 @@ public class DemoModel {
 
     ArdwloopModel model;
 
-    public ArdwloopStatus status;
-
     public DemoModel(Consumer<ArdwloopStatus> fireStatusChanged) {
         this.program = new DemoProgram(fireStatusChanged);
     }

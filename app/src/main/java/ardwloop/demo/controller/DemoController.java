@@ -23,7 +23,7 @@ public class DemoController implements ActionListener {
     }
 
     private void fireStateChanged(ArdwloopStatus status) {
-        model.status = status;
+        view.refresh(status);
     }
 
     @Override

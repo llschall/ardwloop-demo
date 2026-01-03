@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 public class ModelTest {
     @Test
     public void testModel() {
-        DemoModel model = new DemoModel();
+        DemoModel model = new DemoModel((s) -> {
+            // do nothing
+        });
         Assertions.assertFalse(model.program.isLedOn.get());
         model.switchLed(true);
         Assertions.assertTrue(model.program.isLedOn.get());

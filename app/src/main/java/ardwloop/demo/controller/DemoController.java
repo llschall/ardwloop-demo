@@ -4,6 +4,7 @@ import ardwloop.demo.model.DemoModel;
 import ardwloop.demo.utils.DemoException;
 import ardwloop.demo.view.DemoButton;
 import ardwloop.demo.view.DemoView;
+import org.llschall.ardwloop.ArdwloopStatus;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,8 +18,12 @@ public class DemoController implements ActionListener {
     final DemoView view;
 
     public DemoController() {
-        model = new DemoModel();
+        model = new DemoModel(this::fireStateChanged);
         view = new DemoView(model);
+    }
+
+    private void fireStateChanged(ArdwloopStatus status) {
+        model.status = status;
     }
 
     @Override

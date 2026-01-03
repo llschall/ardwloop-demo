@@ -71,6 +71,7 @@ public class DemoView extends JFrame {
     public void refresh() {
         startPnl.refresh(
                 model.getPortName(),
+                model.status,
                 model.isConnected()
         );
         ledPnl.refresh(model.getCount(),

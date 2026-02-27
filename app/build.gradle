@@ -1,0 +1,32 @@
+// Equivalent Groovy DSL for build.gradle.kts
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.github.llschall:ardwloop:0.3.9'
+    testImplementation libs.junit.jupiter
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+application {
+    mainClass = 'ardwloop.demo.StartDemo'
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    testLogging {
+        events "FAILED"
+    }
+}
+

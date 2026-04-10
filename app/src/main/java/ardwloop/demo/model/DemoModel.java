@@ -48,7 +48,7 @@ public class DemoModel {
     }
 
     public String getPortName() {
-        return model.serialMdl.port.name.get();
+        return model.serialMdl.portName.get();
     }
 
     public int getAx() {

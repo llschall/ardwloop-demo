@@ -23,7 +23,7 @@ application {
     mainClass = 'ardwloop.demo.StartDemo'
 }
 
-tasks.withType(Test) {
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
     testLogging {
         events "FAILED"

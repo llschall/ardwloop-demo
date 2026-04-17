@@ -1,15 +1,11 @@
 package ardwloop.demo.model;
 
-import ardwloop.demo.view.DemoRefresher;
-import ardwloop.demo.view.DemoView;
-import kotlin.Function;
 import org.llschall.ardwloop.ArdwloopStatus;
 import org.llschall.ardwloop.IArdwProgram;
 import org.llschall.ardwloop.value.SerialData;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 
 /**

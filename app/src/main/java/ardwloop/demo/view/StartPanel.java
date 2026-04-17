@@ -2,7 +2,6 @@ package ardwloop.demo.view;
 
 import ardwloop.demo.controller.DemoCommands;
 import ardwloop.demo.controller.DemoController;
-import org.llschall.ardwloop.ArdwloopStatus;
 
 import javax.swing.*;
 import java.awt.*;

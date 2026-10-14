@@ -43,7 +43,7 @@ public class DemoView extends JFrame {
         JPanel versionPnl = new JPanel(new FlowLayout());
         versionPnl.add(versionLbl);
 
-        portPnl = new PortPanel();
+        portPnl = new PortPanel(model.getBaudRate());
         startPnl = new StartPanel(controller);
         ledPnl = new LedPanel(controller);
         LinePanel exitPnl = new LinePanel(controller, DemoCommands.EXIT);

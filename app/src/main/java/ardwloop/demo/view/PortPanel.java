@@ -11,7 +11,7 @@ import java.util.List;
 
 class PortPanel extends JPanel {
 
-    PortPanel() {
+    PortPanel(int baud) {
 
         CustomSelector selector = new CustomSelector();
 
@@ -29,6 +29,9 @@ class PortPanel extends JPanel {
             }
         }
 
+        JLabel baudLbl = new JLabel();
+        baudLbl.setText("Baud: " + baud);
+
         JTable table = new JTable(model);
 
         table.setFillsViewportHeight(true);
@@ -40,6 +43,7 @@ class PortPanel extends JPanel {
 
         setLayout(new BorderLayout());
         add(pane, BorderLayout.CENTER);
+        add(baudLbl, BorderLayout.SOUTH);
     }
 }
 

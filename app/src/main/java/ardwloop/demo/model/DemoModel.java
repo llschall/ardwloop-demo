@@ -51,6 +51,10 @@ public class DemoModel {
         return model.serialMdl.portName.get();
     }
 
+    public int getBaudRate() {
+        return IArdwConfig.BAUD_9600;
+    }
+
     public int getAx() {
         return program.ax.get();
     }
